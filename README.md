@@ -23,6 +23,12 @@ import (
 
 func main() {
 	IPDict := ip_location.NewIPDict()
+    //载入IP字典
+	err := IPDict.Load("./qqwry.dat")
+	if err != nil {
+		log.Fatalln(err)
+	}
+    //查询IP
 	res, err := IPDict.FindIP("127.0.0.1")
 	if err != nil {
 		log.Fatalln(err)
